@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tammo Krueger</title>
+    <meta name="description" content="Tammo Krueger">
+    <meta name="author" content="Tammo Krueger">
+   <link rel="stylesheet" href="bootstrap.min.css">
+    <style type="text/css">
+      /* Page header tweaks */
+
+      body {
+        padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+      }
+
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+        -webkit-border-radius: 0 0 6px 6px;
+           -moz-border-radius: 0 0 6px 6px;
+                border-radius: 0 0 6px 6px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+      .page-header {
+        background-color: #f5f5f5;
+        padding: 20px 20px 10px;
+        margin: -20px -20px 20px;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">Tammo Krueger</a>
+          <ul class="nav">
+
+	                <li><a href="index.html">Contact</a></li>
+            <li class="active"><a href="#">Projects</a></li>
+            <li><a href="publications.html">Publications</a></li>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+
+	  <h1>Projects</h1>
+
+
+        </div>
+        <div class="row">
+          <div class="span10">
+
+	    All projects are hosted at <a href="https://github.com/tammok">https://github.com/tammok</a>.
+
+<h2>Learning Stateful Models for Network Honeypots</h2> 
+
+<p>Attacks like call fraud and identity theft often involve sophisticated
+stateful attack patterns which, on top of normal communication, try to
+harm systems on a higher semantic level than usual attack
+scenarios. To detect these kind of threats via specially deployed
+honeypots, at least a minimal understanding of the inherent state
+machine of a specific service is needed to lure potential attackers
+and to keep a communication for a sufficiently large number of
+steps. To this end we propose 
+<!-- PRISMA, a -->
+<a href="talks/prismatalk.pdf"> PRISMA</a>, a
+method for <i>protocol inspection and state machine analysis</i>,
+which infers a functional state machine and message format of a
+protocol from network traffic alone. We apply our method to three
+real-life network traces ranging from 10,000 up to 2 million messages
+of both binary and textual protocols. We show that PRISMA is capable
+of simulating complete and correct sessions based on the learned
+models. A use case on malware traffic reveals the different states of
+the execution, rendering PRISMA a valuable tool for malware
+analysis.</p>
+<p>See also a <a href="talks/prismalecture.pdf">lecture</a> about this
+topic held at the University of Goettingen which additionally
+introduces some basic statistical methods.
+Furthermore, we have prepared an R package PRISMA hosted
+  on <a href="http://cran.r-project.org/web/packages/PRISMA/index.html">CRAN</a>. 
+
+<h2>Fast Cross-Validation via Sequential Analysis</h2>
+
+With the increasing size of today's data sets, finding the right
+parameter configuration via cross-validation can be an extremely
+time-consuming task. In this <a href="talks/fastcv.pdf">talk</a> we propose an improved
+cross-validation procedure which uses non-parametric testing coupled
+with sequential analysis to determine the best parameter set on
+linearly increasing subsets of the data. By eliminating
+underperforming candidates quickly and keeping promising candidates as
+long as possible the method speeds up the computation while preserving
+the capability of the full cross-validation. The experimental
+evaluation shows that our method reduces the computation time by a
+factor of up to 120 compared to a full cross-validation with a
+negligible impact on the accuracy. Code is available as package CVST
+on <a href="http://cran.r-project.org/web/packages/CVST/index.html">CRAN</a>. 
+
+<h2>ASAP: Automatic Semantics-Aware Analysis of Network Payloads</h2>
+
+Automatic inspection of network payloads is a prerequisite for
+effective analysis of network communication. Security research has
+largely focused on network analysis using protocol specifications, for
+example for intrusion detection, fuzz testing and forensic
+analysis. The specification of a protocol alone, however, is often not
+sufficient for accurate analysis of communication, as it fails to
+reflect individual semantics of network applications. In
+our <a href="talks/asap.pdf">talk</a> we propose a framework for
+semantics-aware analysis of network payloads which automatically
+extracts semantics-aware components from recorded network traffic. Our
+method proceeds by mapping network payloads to a vector space and
+identifying communication templates corresponding to base directions
+in the vector space. We demonstrate the efficacy of semantics-aware
+analysis in different security applications: automatic discovery of
+patterns in honeypot data, analysis of malware communication and
+network intrusion detection.
+
+<h2>TokDoc: A Self-Healing Web Application Firewall</h2> The growing
+amount of web-based attacks poses a severe threat to the security of
+web applications. Signature-based detection techniques increasingly
+fail to cope with the vari- ety and complexity of novel attack
+instances. As a remedy, we introduce in
+our <a href="talks/tokdoc.pdf">talk</a> a protocol-aware reverse HTTP
+proxy TokDoc (the token doctor), which intercepts requests and decides
+on a per-token basis whether a token requires automatic "healing". In
+particular, we propose an intelligent mangling technique, which, based
+on the decision of previously trained anomaly detectors, replaces
+suspicious parts in requests by benign data the system has seen in the
+past. Evaluation of our system in terms of accuracy is performed on
+two real- world data sets and a large variety of recent attacks. In
+com- parison to state-of-the-art anomaly detectors, TokDoc is not only
+capable of detecting most attacks, but also significantly outperforms
+the other methods in terms of false positives.  Runtime measurements
+show that our implementation can be deployed as an inline intrusion
+prevention system.
+
+<h2>An Architecture for Inline Anomaly Detection</h2>
+
+In this <a href="talks/fips.pdf">talk</a> we propose an intrusion
+prevention system (IPS) which operates inline and is capable to detect
+unknown attacks using anomaly detection methods. Incorporated in
+the framework of a packet filter each incoming packet is analyzed and
+- according to an internal connection state and a computed anomaly
+score - either delivered to the production system, redirected to a
+special hardened system or logged to a network sink for later
+analysis. Runtime measurements of an actual implementation prove
+that the performance overhead of the system is sufficient for inline
+processing. Accuracy measurements on real network data yield
+improvements especially in the number of false positives, which are
+reduced by a factor of five compared to a plain anomaly detector.
+
+
+          </div>
+          <div class="span6">
+	    <center>
+	    <img src="projects.png">
+
+	    </center>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; Tammo Krueger 2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
